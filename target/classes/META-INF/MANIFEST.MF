@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: linmiragli
+Build-Jdk: 17.0.1
+Implementation-Title: florence-ws
+Implementation-Version: 2.0-SNAPSHOT
+Implementation-Vendor-Id: it.florence.ws
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/florence-ws
+Created-By: Maven Integration for Eclipse
+

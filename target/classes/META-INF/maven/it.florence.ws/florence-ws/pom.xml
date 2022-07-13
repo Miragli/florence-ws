@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.2.RELEASE</version>
+		<relativePath />
+		<!-- lookup parent from repository -->
+	</parent>
+	<groupId>it.florence.ws</groupId>
+	<artifactId>florence-ws</artifactId>
+	<version>2.0-SNAPSHOT</version>
+	<name>florence-ws</name>
+	<description>Florence ws</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.version>5.1.4.RELEASE</spring.version>
+		<springdata.version>2.1.0.RELEASE</springdata.version>
+		<spring-boot.version>2.0.4.RELEASE</spring-boot.version>
+		<log4j.version>1.2.17</log4j.version>
+		<hibernate.version>5.4.0.Final</hibernate.version>
+		<hibernate.validator.version>6.0.14.Final</hibernate.validator.version>
+		<junit.version>4.12</junit.version>
+		<log4j.version>1.2.17</log4j.version>
+		<oracle.jdbc.version>11.2.0.3</oracle.jdbc.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- Add Log4j2 Dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${oracle.jdbc.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<!-- Profile configuration -->
+	<profiles>
+		<!-- The configuration of the development profile -->
+		<profile>
+			<id>dev</id>
+			<!-- The development profile is active by default -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Specifies the build.profile.id property that must be equal than 
+					the name of the directory that contains the profile specific configuration 
+					file. Because the name of the directory that contains the configuration file 
+					of the development profile is dev, we must set the value of the build.profile.id 
+					property to dev. -->
+				<build.profile.id>dev</build.profile.id>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+		</profile>
+
+	</profiles>
+</project>
